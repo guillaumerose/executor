@@ -3,6 +3,7 @@ package client
 import (
 	"bytes"
 	"context"
+	"github.com/mdlayher/vsock"
 	"io"
 	"net"
 	"os"
@@ -96,7 +97,7 @@ func grcpDialWithUnixSocket(ctx context.Context, socketPath string) (*grpc.Clien
 		ctx, socketPath,
 		grpc.WithInsecure(), grpc.WithBlock(), grpc.WithTimeout(time.Second*3),
 		grpc.WithDialer(func(addr string, timeout time.Duration) (net.Conn, error) {
-			return net.DialTimeout("unix", addr, timeout)
+			return vsock.Dial(3, 1025)
 		}),
 	)
 }

@@ -4,6 +4,7 @@ go 1.12
 
 require (
 	github.com/golang/protobuf v1.3.2
+	github.com/mdlayher/vsock v0.0.0-20200508120832-7ad3638b3fbc
 	github.com/pkg/errors v0.8.1
 	google.golang.org/grpc v1.22.0
 	yunion.io/x/log v0.0.0-20190629062853-9f6483a7103d

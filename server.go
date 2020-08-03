@@ -1,7 +1,7 @@
 package main
 
 import (
-	"net"
+	"github.com/mdlayher/vsock"
 	"os"
 	"strings"
 
@@ -48,7 +48,7 @@ func (s *SExecuteService) runService() {
 		}
 	}
 
-	listener, err := net.Listen("unix", socketPath)
+	listener, err := vsock.Listen(1025)
 	if err != nil {
 		log.Fatalln(err)
 	}
